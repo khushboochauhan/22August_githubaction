@@ -1,0 +1,31 @@
+name: Install PHP on Ubuntu 22 and Ubuntu 24
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Install PHP on the runner VM
+        run: |
+          sudo apt update
+          sudo apt install php -y
+          php --version
+
+  job2:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Update package list
+        run: |
+          sudo apt-get update
+
+      - name: Install PHP
+        run: |
+          sudo apt-get install -y php
+
+      - name: Verify PHP installation
+        run: |
+          php --version
