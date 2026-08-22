@@ -1,0 +1,23 @@
+```yaml
+name: Install PHP on Ubuntu
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install-php:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update package list
+        run: |
+          sudo apt-get update
+
+      - name: Install PHP
+        run: |
+          sudo apt-get install -y php
+
+      - name: Verify PHP installation
+        run: |
+          php --version
+```
